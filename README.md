@@ -50,9 +50,9 @@ changes within a second, reloaded in place.
 
 ## Features
 
-- **Twelve tools from one theme**: sway (borders, gaps, corners), waybar,
+- **Thirteen tools from one theme**: sway (borders, gaps, corners), waybar,
   tmux (bar, borders, popups, copy mode), kitty, mako, Vyom panels, Neovim,
-  powerlevel10k, fzf, lazygit, swaylock and GTK apps, plus a JSON palette any
+  powerlevel10k, fzf, lazygit, swaylock, btop and GTK apps, plus a JSON palette any
   program can read.
 - **Live**: every running tool reloads in place (sway, waybar, every tmux
   server, every kitty window, every Neovim through its socket, mako, Vyom).
@@ -158,6 +158,7 @@ config before the include, and they become the fallback.
 | fzf | `~/.zshrc` | `source ~/.local/state/varna/fzf.sh` (sets `FZF_DEFAULT_OPTS`, `$VARNA_FZF_COLORS` and `$VARNA_RGB_ACCENT`, `$VARNA_RGB_FG`... for scripts' own colours) |
 | lazygit | `~/.zshrc` | `export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.local/state/varna/lazygit.yml"` |
 | swaylock | your lock command | `swaylock $(cat ~/.local/state/varna/swaylock.args)` |
+| btop | your btop command | `btop -c ~/.local/state/varna/btop.conf` (varna sets its theme there; btop keeps its other settings in it) |
 | GTK apps | nothing: `varna set gtk on` | links `~/.config/gtk-{3,4}.0/gtk.css` (libadwaita's named colours) |
 
 waybar and mako refuse to start when an included file is missing: run

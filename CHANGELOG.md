@@ -2,6 +2,18 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## v0.1.7 -- 2026-10-21
+
+- **Popup frames you can see**: a new `frame` role (overlay1 by default)
+  draws the boxes inside popups (fzf's list, preview, footer and header
+  borders, lazygit's inactive panels, btop's boxes); they used `line`,
+  which nearly vanished on a transparent popup in themes like Rosé Pine.
+  `VARNA_RGB_FRAME` for scripts.
+- Rosé Pine, Dawn and Kanagawa use their own muted colour (overlay1) for
+  muted text, which was too dark to read on glass.
+- **btop** follows the theme: `btop -c ~/.local/state/varna/btop.conf`
+  (varna sets the theme in it; btop keeps its other settings there).
+
 ## v0.1.6 -- 2026-10-21
 
 - Scripts can colour their own output from the theme: `fzf.sh` also exports

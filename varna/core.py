@@ -49,6 +49,7 @@ ROLE_DEFAULTS = {
     "bg": "base",
     "muted": "overlay0",
     "line": "surface1",           # quiet separators
+    "frame": "overlay1",          # the frames inside popups (fzf's list / preview / footer boxes): visible on glass
     "selection": "surface1",
     "match": "yellow",            # search matches
     "mark": "pink",
@@ -72,6 +73,8 @@ TOOLS = {
     "fzf": dict(label="fzf", template="fzf.sh", out="fzf.sh", reload=None),
     "lazygit": dict(label="lazygit", template="lazygit.yml", out="lazygit.yml", reload=None),
     "swaylock": dict(label="Lock screen (swaylock)", template="swaylock.conf", out="swaylock.args", reload=None, header=False),
+    "btop": dict(label="btop", template="btop.theme", out="btop.theme", reload=None),
+    "btop-config": dict(label="btop (its config)", template="btop.conf", out="btop.conf", reload=None, keep=True),
     "gtk": dict(label="GTK apps", template="gtk.css", out="gtk.css", reload="gtk", optional=True),
     "apps": dict(label="Vayu's tools (vesha, nāda, vinyasa…)", template=None, out="palette.json", reload=None),
 }
@@ -90,6 +93,7 @@ HOOKS = {
     "fzf": ("~/.zshrc", "varna/fzf.sh", "[ -f ~/.local/state/varna/fzf.sh ] && source ~/.local/state/varna/fzf.sh"),
     "lazygit": ("~/.zshrc", "varna/lazygit.yml",
                 'export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.local/state/varna/lazygit.yml"'),
+    "btop": ("~/.config/tmux/tmux.conf", "varna/btop.conf", "btop -c ~/.local/state/varna/btop.conf   (your btop command or popup)"),
     "swaylock": ("~/.config/sway/config", "swaylock.args|vayu-lock", "swaylock $(cat ~/.local/state/varna/swaylock.args)   (or Vayu's vayu-lock)"),
 }
 
@@ -289,6 +293,7 @@ def resolve(conf, tool=None):
     ctx["variant"] = t["meta"]["variant"]
     ctx["dark"] = "true" if t["meta"]["variant"] == "dark" else "false"
     ctx["theme"] = tid
+    ctx["state_dir"] = STATE
     ctx["theme_name"] = t["meta"]["name"]
     return ctx, t
 
@@ -480,7 +485,10 @@ def apply(conf=None, only=None, reload=True, on_step=None):
             continue
         try:
             path, text = render_tool(conf, name)
-            write(path, text)
+            if TOOLS[name].get("keep") and os.path.exists(path):
+                keep_lines(path, text)
+            else:
+                write(path, text)
             rendered[name] = path
         except (VarnaError, OSError) as e:
             results.append((name, "failed", str(e)))
@@ -514,6 +522,25 @@ def apply(conf=None, only=None, reload=True, on_step=None):
             pass
     order = {n: i for i, n in enumerate(TOOLS)}
     return sorted(results, key=lambda r: order.get(r[0], len(order)))
+
+
+def keep_lines(path, text):
+    """For a config the tool itself rewrites (btop's): set our `key = value`
+    lines in it, leaving everything else the tool wrote."""
+    ours = {}
+    for line in text.splitlines():
+        if "=" in line and not line.lstrip().startswith("#"):
+            ours[line.split("=", 1)[0].strip()] = line
+    with open(path) as f:
+        lines = f.read().splitlines()
+    seen = set()
+    for i, line in enumerate(lines):
+        key = line.split("=", 1)[0].strip() if "=" in line else None
+        if key in ours:
+            lines[i] = ours[key]
+            seen.add(key)
+    lines += [v for k, v in ours.items() if k not in seen]
+    write(path, "\n".join(lines) + "\n")
 
 
 # ===================================================================== reload

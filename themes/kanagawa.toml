@@ -35,5 +35,6 @@ blue = "#7e9cd8"
 lavender = "#938aa9"
 
 [roles]
+muted = "overlay1"
 accent = "mauve"
 accent2 = "blue"

@@ -2,7 +2,7 @@
 gui:
   theme:
     activeBorderColor: ["{{accent2}}", bold]
-    inactiveBorderColor: ["{{line}}"]
+    inactiveBorderColor: ["{{frame}}"]
     searchingActiveBorderColor: ["{{match}}", bold]
     optionsTextColor: ["{{options|blue}}"]
     selectedLineBgColor: ["{{selected|surface0}}"]
