@@ -1,2 +1,2 @@
 """varna (वर्ण, "colour"): one theme for every tool."""
-VERSION = "0.1.0"
+VERSION = "0.1.1"

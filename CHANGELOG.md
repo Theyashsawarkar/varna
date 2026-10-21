@@ -2,6 +2,12 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## v0.1.1 -- 2026-10-21
+
+- The focused window's border is the theme's accent in every theme (Vayu
+  used red, Rosé Pine and Dawn their rose), so it matches the active
+  workspace, the tmux session and the rest of the highlights.
+
 ## v0.1.0 -- 2026-10-21
 
 The first release: one theme for every tool.
