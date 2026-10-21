@@ -2,6 +2,12 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## v0.1.3 -- 2026-10-21
+
+- Rosé Pine's and Dawn's second accent is foam (their cyan) instead of
+  rosewater, which sat too close to iris: the current tmux window, the
+  active pane, popups, the prompt's folder and fzf's highlights.
+
 ## v0.1.2 -- 2026-10-21
 
 - Vayu's second accent is pink (`#f5c2e7`, Catppuccin's pairing with its
