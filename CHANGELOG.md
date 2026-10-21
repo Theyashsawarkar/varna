@@ -2,6 +2,12 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## v0.1.4 -- 2026-10-21
+
+- tmux gets more colours from the theme: `@attention` (peach: something
+  waits for you), `@dev` (sky: dev servers) and `@ok` / `@warn` / `@error`
+  (status capsules that go green, yellow, red).
+
 ## v0.1.3 -- 2026-10-21
 
 - Rosé Pine's and Dawn's second accent is foam (their cyan) instead of
