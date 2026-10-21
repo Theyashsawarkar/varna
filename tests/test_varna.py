@@ -30,7 +30,7 @@ class Themes(unittest.TestCase):
     def test_vayu_keeps_todays_colours(self):
         values, _ = core.resolve({"theme": "vayu"}, "tmux")
         self.assertEqual(values["accent"], "#cba6f7")
-        self.assertEqual(values["accent2"], "#d095a4")
+        self.assertEqual(values["accent2"], "#f5c2e7")
         self.assertEqual(values["urgent"], "#dc2626")
         self.assertEqual(values["window_idle"], "#9a9faa")   # a tmux extra
 

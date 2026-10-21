@@ -35,7 +35,7 @@ lavender = "#b4befe"
 
 [roles]
 accent = "mauve"
-accent2 = "#d095a4"
+accent2 = "pink"
 border_inactive = "surface1"
 urgent = "#dc2626"
 ink = "#0b0e14"
