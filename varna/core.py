@@ -345,7 +345,7 @@ def conditions(text, facts):
 
 def render(text, ctx, where="template"):
     """{{name}}, {{name|fallback}}, {{name:filter}}. Filters: hex (default),
-    a=0.35 (#rrggbbaa), rgb (r, g, b), rgba=0.4, alpha=0.4 (GTK alpha()),
+    a=0.35 (#rrggbbaa), rgb (r, g, b), semi (r;g;b), rgba=0.4, alpha=0.4 (GTK alpha()),
     bare (rrggbb), upper, mix=other:0.3. Unknown names are an error, so a
     typo never ships silently."""
     def one(m):
@@ -376,6 +376,8 @@ def render(text, ctx, where="template"):
             return h[1:]
         if flt == "rgb":
             return ", ".join(str(c) for c in hex_rgb(h))
+        if flt == "semi":   # for terminal colour codes: \e[38;2;{{red:semi}}m
+            return ";".join(str(c) for c in hex_rgb(h))
         key, _, arg = flt.partition("=")
         if key == "a":
             return h + f"{round(float(arg) * 255):02x}"

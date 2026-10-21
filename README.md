@@ -155,7 +155,7 @@ config before the include, and they become the fallback.
 | Vyom | `~/.config/vyom/config.toml`, `[vyom]` | `css = ["~/.local/state/varna/vyom.css"]` |
 | Neovim | `lua/varna.lua` | reads `~/.local/state/varna/nvim.lua` into catppuccin's `color_overrides` ([example](https://github.com/Theyashsawarkar/vayu/blob/main/nvim/.config/nvim/lua/varna.lua)) |
 | powerlevel10k | `~/.zshrc`, after `~/.p10k.zsh` | `source ~/.local/state/varna/p10k.zsh` |
-| fzf | `~/.zshrc` | `source ~/.local/state/varna/fzf.sh` (sets `FZF_DEFAULT_OPTS`, and `$VARNA_FZF_COLORS` for scripts) |
+| fzf | `~/.zshrc` | `source ~/.local/state/varna/fzf.sh` (sets `FZF_DEFAULT_OPTS`, `$VARNA_FZF_COLORS` and `$VARNA_RGB_ACCENT`, `$VARNA_RGB_FG`... for scripts' own colours) |
 | lazygit | `~/.zshrc` | `export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.local/state/varna/lazygit.yml"` |
 | swaylock | your lock command | `swaylock $(cat ~/.local/state/varna/swaylock.args)` |
 | GTK apps | nothing: `varna set gtk on` | links `~/.config/gtk-{3,4}.0/gtk.css` (libadwaita's named colours) |
@@ -236,6 +236,7 @@ varna template add ~/.config/foo/config.varna ~/.config/foo/config --tool foo
 | `{{accent:upper}}` / `{{accent:bare}}` | `#CBA6F7` / `cba6f7` |
 | `{{base:a=0.35}}` | `#1e1e2e59` (with alpha) |
 | `{{red:rgb}}` / `{{red:rgba=0.4}}` | `243, 139, 168` / `rgba(243, 139, 168, 0.4)` |
+| `{{red:semi}}` | `243;139;168` (for terminal colour codes) |
 | `{{red:alpha=0.4}}` | `alpha(#f38ba8, 0.4)` (GTK CSS) |
 | `{{peach:mix=base:0.3}}` | peach blended 30 % toward base |
 | `{{window_idle\|overlay1}}` | a fallback when the theme lacks a name |

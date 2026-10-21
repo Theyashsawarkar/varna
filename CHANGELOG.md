@@ -2,6 +2,13 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## v0.1.6 -- 2026-10-21
+
+- Scripts can colour their own output from the theme: `fzf.sh` also exports
+  `VARNA_RGB_<NAME>` (`r;g;b`) for the accents, text, muted, line, ok / warn
+  / error and the main palette colours, e.g. `printf '\e[38;2;%sm'
+  "$VARNA_RGB_ACCENT"`. A new template filter, `:semi`, writes `r;g;b`.
+
 ## v0.1.5 -- 2026-10-21
 
 - Rosé Pine and Dawn colour tmux's dev servers capsule rose, so it no
