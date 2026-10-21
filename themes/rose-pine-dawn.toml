@@ -39,3 +39,6 @@ lavender = "#907aa9"
 accent = "mauve"
 accent2 = "teal"
 ink = "base"
+
+[tools.tmux]
+devservers = "rosewater"

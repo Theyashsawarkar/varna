@@ -2,6 +2,12 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## v0.1.5 -- 2026-10-21
+
+- Rosé Pine and Dawn colour tmux's dev servers capsule rose, so it no
+  longer matches the green of a status capsule (their green, teal and sky
+  are all foam).
+
 ## v0.1.4 -- 2026-10-21
 
 - tmux gets more colours from the theme: `@attention` (peach: something
