@@ -1,0 +1,39 @@
+# Tokyo Night: the neon of downtown Tokyo at night
+# Palette: github.com/folke/tokyonight.nvim (Apache-2.0)
+
+[meta]
+name = "Tokyo Night"
+variant = "dark"
+description = "the neon of downtown Tokyo at night"
+
+[palette]
+crust = "#101014"
+mantle = "#16161e"
+base = "#1a1b26"
+surface0 = "#24283b"
+surface1 = "#292e42"
+surface2 = "#414868"
+overlay0 = "#545c7e"
+overlay1 = "#565f89"
+overlay2 = "#737aa2"
+subtext0 = "#a9b1d6"
+subtext1 = "#b4bce0"
+text = "#c0caf5"
+rosewater = "#e0c0c8"
+flamingo = "#f0a0b0"
+pink = "#f7a1c4"
+mauve = "#bb9af7"
+red = "#f7768e"
+maroon = "#db4b4b"
+peach = "#ff9e64"
+yellow = "#e0af68"
+green = "#9ece6a"
+teal = "#1abc9c"
+sky = "#7dcfff"
+sapphire = "#2ac3de"
+blue = "#7aa2f7"
+lavender = "#9d7cd8"
+
+[roles]
+accent = "blue"
+accent2 = "mauve"

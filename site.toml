@@ -1,0 +1,8 @@
+# The project website (docs/, GitHub Pages): built by scripts/build-site.py
+name = "varna"
+sanskrit = "वर्ण"
+meaning = "colour"
+tagline = "One theme for every tool: sway, waybar, tmux, kitty, Neovim, notifications and more, live."
+color = "pink"
+kind = "theme engine"
+logo = "assets/logo.svg"

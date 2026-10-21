@@ -1,0 +1,39 @@
+# Kanagawa: the colours of Hokusai's Great Wave
+# Palette: github.com/rebelot/kanagawa.nvim (MIT)
+
+[meta]
+name = "Kanagawa"
+variant = "dark"
+description = "the colours of Hokusai's Great Wave"
+
+[palette]
+crust = "#16161d"
+mantle = "#1a1a22"
+base = "#1f1f28"
+surface0 = "#2a2a37"
+surface1 = "#363646"
+surface2 = "#54546d"
+overlay0 = "#5c5c70"
+overlay1 = "#727169"
+overlay2 = "#938aa9"
+subtext0 = "#c8c093"
+subtext1 = "#d5cea3"
+text = "#dcd7ba"
+rosewater = "#e6c3b4"
+flamingo = "#e46876"
+pink = "#d27e99"
+mauve = "#957fb8"
+red = "#ff5d62"
+maroon = "#c34043"
+peach = "#ffa066"
+yellow = "#e6c384"
+green = "#98bb6c"
+teal = "#7aa89f"
+sky = "#7fb4ca"
+sapphire = "#a3d4d5"
+blue = "#7e9cd8"
+lavender = "#938aa9"
+
+[roles]
+accent = "mauve"
+accent2 = "blue"

@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Lint
+        run: pipx run ruff check .
+      - name: Compile
+        run: python -m py_compile bin/varna varna/*.py
+      - name: ShellCheck
+        run: shellcheck -S warning install.sh
+      - name: Version and changelog agree
+        run: |
+          v=$(sed -n 's/^VERSION = "\(.*\)"/\1/p' varna/__init__.py)
+          grep -q "^## v$v " CHANGELOG.md || { echo "CHANGELOG.md has no entry for v$v"; exit 1; }
+      - name: Unit tests (every theme through every template)
+        run: python -m unittest discover -s tests -v
+      - name: Every theme applies end to end (throwaway home)
+        run: |
+          export HOME=$(mktemp -d)
+          for t in $(bin/varna _themes); do bin/varna apply "$t" --no-reload >/dev/null; done
+          bin/varna list
+          bin/varna show nord
+          bin/varna tool nvim tokyo-night && bin/varna tools
+          bin/varna new "CI Theme" --from vayu && bin/varna apply ci-theme --no-reload && bin/varna delete ci-theme || true
+          for c in $(bin/varna help | sed -n 's/^  \([a-z][a-z-]*\) .*/\1/p'); do bin/varna "$c" --help >/dev/null; done
+      - name: Website is up to date
+        run: python3 scripts/build-site.py --check

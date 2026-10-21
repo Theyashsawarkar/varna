@@ -1,0 +1,70 @@
+# Vayu: Vayu's own look: Catppuccin Mocha glass with rose and mauve
+
+[meta]
+name = "Vayu"
+variant = "dark"
+description = "Vayu's own look: Catppuccin Mocha glass with rose and mauve"
+
+[palette]
+crust = "#11111b"
+mantle = "#181825"
+base = "#1e1e2e"
+surface0 = "#313244"
+surface1 = "#45475a"
+surface2 = "#585b70"
+overlay0 = "#6c7086"
+overlay1 = "#7f849c"
+overlay2 = "#9399b2"
+subtext0 = "#a6adc8"
+subtext1 = "#bac2de"
+text = "#cdd6f4"
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+
+[roles]
+accent = "mauve"
+accent2 = "#d095a4"
+border = "red"
+border_inactive = "surface1"
+urgent = "#dc2626"
+ink = "#0b0e14"
+fg = "#d7dde6"
+line = "#3b4048"
+match = "#d4b25c"
+mark = "#c282ce"
+
+[tools.tmux]
+window_idle = "#9a9faa"
+prefix = "#f2a97e"
+copy = "#9ed1a6"
+prs = "#c282ce"
+docker = "#6c8ebf"
+
+[tools.prompt]
+error_prompt = "#b8503f"
+clean = "#93a683"
+modified = "#d4a857"
+untracked = "#a79885"
+jobs = "#7c93a8"
+
+[tools.lazygit]
+options = "#6c8ebf"
+selected = "#2a2d35"
+selected_inactive = "#1e2128"
+picked = "#9ed1a6"
+unstaged = "#f2a97e"
+
+[tools.fzf]
+selected = "#2a2d35"

@@ -1,0 +1,15 @@
+# lazygit merges this over its config (LG_CONFIG_FILE lists both).
+gui:
+  theme:
+    activeBorderColor: ["{{accent2}}", bold]
+    inactiveBorderColor: ["{{line}}"]
+    searchingActiveBorderColor: ["{{match}}", bold]
+    optionsTextColor: ["{{options|blue}}"]
+    selectedLineBgColor: ["{{selected|surface0}}"]
+    inactiveViewSelectedLineBgColor: ["{{selected_inactive|mantle}}"]
+    cherryPickedCommitFgColor: ["{{ink}}"]
+    cherryPickedCommitBgColor: ["{{picked|green}}"]
+    markedBaseCommitFgColor: ["{{ink}}"]
+    markedBaseCommitBgColor: ["{{match}}"]
+    unstagedChangesColor: ["{{unstaged|peach}}"]
+    defaultFgColor: ["{{fg}}"]

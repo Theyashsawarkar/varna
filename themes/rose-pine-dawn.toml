@@ -1,0 +1,42 @@
+# Rosé Pine Dawn: soho vibes, morning
+# Palette: rosepinetheme.com (MIT)
+
+[meta]
+name = "Rosé Pine Dawn"
+variant = "light"
+description = "soho vibes, morning"
+dark = "rose-pine"
+
+[palette]
+crust = "#ede4dc"
+mantle = "#f4ede8"
+base = "#faf4ed"
+surface0 = "#f2e9e1"
+surface1 = "#dfdad9"
+surface2 = "#cecacd"
+overlay0 = "#9893a5"
+overlay1 = "#8a859a"
+overlay2 = "#797593"
+subtext0 = "#6e6a86"
+subtext1 = "#625e7e"
+text = "#575279"
+rosewater = "#d7827e"
+flamingo = "#d7827e"
+pink = "#b4637a"
+mauve = "#907aa9"
+red = "#b4637a"
+maroon = "#a3586d"
+peach = "#d7827e"
+yellow = "#ea9d34"
+green = "#56949f"
+teal = "#56949f"
+sky = "#56949f"
+sapphire = "#286983"
+blue = "#286983"
+lavender = "#907aa9"
+
+[roles]
+accent = "mauve"
+accent2 = "rosewater"
+border = "rosewater"
+ink = "base"

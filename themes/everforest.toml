@@ -1,0 +1,39 @@
+# Everforest: green, warm and comfortable
+# Palette: github.com/sainnhe/everforest (MIT)
+
+[meta]
+name = "Everforest"
+variant = "dark"
+description = "green, warm and comfortable"
+
+[palette]
+crust = "#1e2326"
+mantle = "#232a2e"
+base = "#2d353b"
+surface0 = "#343f44"
+surface1 = "#3d484d"
+surface2 = "#475258"
+overlay0 = "#7a8478"
+overlay1 = "#859289"
+overlay2 = "#9da9a0"
+subtext0 = "#bdb39c"
+subtext1 = "#c8bca1"
+text = "#d3c6aa"
+rosewater = "#e6b8a8"
+flamingo = "#e8a49a"
+pink = "#d699b6"
+mauve = "#d699b6"
+red = "#e67e80"
+maroon = "#d9686b"
+peach = "#e69875"
+yellow = "#dbbc7f"
+green = "#a7c080"
+teal = "#83c092"
+sky = "#7fbbb3"
+sapphire = "#6fa3a0"
+blue = "#7fbbb3"
+lavender = "#b4b0c8"
+
+[roles]
+accent = "green"
+accent2 = "teal"

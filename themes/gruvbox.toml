@@ -1,0 +1,39 @@
+# Gruvbox: retro groove, warm
+# Palette: github.com/morhetz/gruvbox (MIT)
+
+[meta]
+name = "Gruvbox"
+variant = "dark"
+description = "retro groove, warm"
+
+[palette]
+crust = "#1d2021"
+mantle = "#242424"
+base = "#282828"
+surface0 = "#3c3836"
+surface1 = "#504945"
+surface2 = "#665c54"
+overlay0 = "#7c6f64"
+overlay1 = "#928374"
+overlay2 = "#a89984"
+subtext0 = "#bdae93"
+subtext1 = "#d5c4a1"
+text = "#ebdbb2"
+rosewater = "#e9b99a"
+flamingo = "#e78a7a"
+pink = "#d3869b"
+mauve = "#d3869b"
+red = "#fb4934"
+maroon = "#cc241d"
+peach = "#fe8019"
+yellow = "#fabd2f"
+green = "#b8bb26"
+teal = "#8ec07c"
+sky = "#83a598"
+sapphire = "#689d6a"
+blue = "#83a598"
+lavender = "#d3a4c2"
+
+[roles]
+accent = "yellow"
+accent2 = "peach"

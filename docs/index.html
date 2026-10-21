@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>varna · One theme for every tool: sway, waybar, tmux, kitty, Neovim, notifications and more, live.</title>
+<meta name="description" content="One theme for every tool: sway, waybar, tmux, kitty, Neovim, notifications and more, live.">
+<meta property="og:title" content="varna · One theme for every tool: sway, waybar, tmux, kitty, Neovim, notifications and more, live.">
+<meta property="og:description" content="One theme for every tool: sway, waybar, tmux, kitty, Neovim, notifications and more, live.">
+<meta name="theme-color" content="#11111b">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>:root{--accent:#f5c2e7;--glow:#f5c2e733}</style>
+</head>
+<body>
+<header class="top"><div class="in">
+<a class="brand" href="index.html"><img src="assets/logo.svg" alt=""><span>varna <small>वर्ण</small></span></a>
+<nav><a href="index.html" class="on">Overview</a><a href="changelog.html" class="">Changelog</a><a href="adr/index.html" class=" hide">Decisions</a><a class="gh" href="https://github.com/Theyashsawarkar/varna">GitHub ↗</a></nav></div></header>
+<section class="hero"><div class="in"><div>
+<div class="eyebrow">theme engine</div>
+<h1>varna</h1>
+<div class="sa">वर्ण <span>· “colour”</span></div>
+<p class="lead">One theme for every tool: sway, waybar, tmux, kitty, Neovim, notifications and more, live.</p>
+<div class="cta"><a class="btn primary" href="#install">Install</a><a class="btn" href="https://github.com/Theyashsawarkar/varna">GitHub ↗</a>
+<a class="btn" href="changelog.html">What's new in v0.1.0</a></div>
+<div class="meta"><span><b>v0.1.0</b> latest</span><span><b>1</b> releases</span><span><b>5</b> decisions recorded</span><span><b>MIT</b> license</span></div>
+</div><img class="logo" src="assets/logo.svg" alt="varna logo"></div></section>
+<div class="wrap"><aside class="toc"><b>On this page</b><a class="l2" href="#features">Features</a><a class="l2" href="#install">Install</a><a class="l2" href="#getting-started">Getting started</a><a class="l2" href="#themes">Themes</a><a class="l2" href="#commands">Commands</a><a class="l2" href="#hooking-up-each-tool">Hooking up each tool</a><a class="l2" href="#a-tool-with-its-own-theme">A tool with its own theme</a><a class="l2" href="#making-a-theme">Making a theme</a><a class="l2" href="#theming-any-file">Theming any file</a><a class="l2" href="#for-tool-authors">For tool authors</a><a class="l2" href="#troubleshooting">Troubleshooting</a><a class="l2" href="#contributing">Contributing</a><a class="l2" href="#license">License</a></aside><article>
+<blockquote><p><em>Varna</em> (वर्ण) is Sanskrit for "colour".</p></blockquote>
+<p>A Linux desktop is a dozen programs, each with its own colour settings in its own format: hex codes in sway's config, CSS in waybar, <code>#{}</code> formats in tmux, a colour table in kitty, Lua in Neovim. Changing the look means editing all of them, and they drift apart. <strong>varna</strong> keeps one theme (a small TOML file of named colours) and writes each tool's colours from it, into a file the tool's config includes. Switch the theme and every tool changes within a second, reloaded in place.</p>
+<p align="center">
+  <img alt="varna list shows every theme with a strip of its colours; varna apply rose-pine themes twelve tools and says where each file went" src="assets/screenshots/cli.png" width="84%">
+</p>
+<h2 id="features"><a class="anchor" href="#features">#</a>Features</h2>
+<ul><li><strong>Twelve tools from one theme</strong>: sway (borders, gaps, corners), waybar, tmux (bar, borders, popups, copy mode), kitty, mako, Vyom panels, Neovim, powerlevel10k, fzf, lazygit, swaylock and GTK apps, plus a JSON palette any program can read.</li><li><strong>Live</strong>: every running tool reloads in place (sway, waybar, every tmux server, every kitty window, every Neovim through its socket, mako, Vyom).</li><li><strong>Your configs stay yours</strong>: each tool includes one generated file; nothing else in its config is touched, and without varna it keeps working on its own values.</li><li><strong>Per-tool themes</strong>: <code>varna tool nvim tokyo-night</code> gives one tool its own theme while the rest follow the desktop.</li><li><strong>Ten themes to start</strong>: Vayu, Catppuccin Mocha and Latte, Rosé Pine and Dawn, Tokyo Night, Gruvbox, Nord, Kanagawa, Everforest; light/dark twins switch with <code>varna mode toggle</code>.</li><li><strong>Your own themes</strong>: <code>varna new &quot;Rose Dusk&quot; --from nord</code>, then edit the colours (or use <a href="https://github.com/Theyashsawarkar/vinyasa">vinyasa</a>'s editor).</li><li><strong>Any file</strong>: <code>varna template add</code> themes any config with <code>{{accent}}</code>-style placeholders.</li><li><strong>Safe</strong>: a typo in a template is an error, never a silently broken colour; a throwaway <code>HOME</code> never restyles the running desktop.</li><li><strong>No dependencies</strong> beyond Python 3.11's standard library.</li></ul>
+<h2 id="install"><a class="anchor" href="#install">#</a>Install</h2>
+<p>With <a href="https://github.com/Theyashsawarkar/kosha">kosha</a>: <code>kosha install varna</code>.</p>
+<p>Or the installer (clones into <code>~/.local/share/varna</code>, links <code>~/.local/bin/varna</code>, no root):</p>
+<pre class="code" data-lang="sh"><code>curl -fsSL https://raw.githubusercontent.com/Theyashsawarkar/varna/main/install.sh | bash</code></pre>
+<p>Or by hand: <code>git clone https://github.com/Theyashsawarkar/varna ~/.local/share/varna &amp;&amp; ln -s ~/.local/share/varna/bin/varna ~/.local/bin/varna</code>.</p>
+<h2 id="getting-started"><a class="anchor" href="#getting-started">#</a>Getting started</h2>
+<pre class="code" data-lang="sh"><code>varna doctor            # what each tool&#x27;s config needs to include (one line each)
+varna apply             # write and reload every tool with the current theme (Vayu)
+varna apply rose-pine   # switch
+varna set accent blue   # keep the theme, change the accent
+varna mode toggle       # its light / dark twin</code></pre>
+<p><a href="https://github.com/Theyashsawarkar/vinyasa">vinyasa</a>, Vayu's settings app, is a window over all of this: theme cards, accent swatches, a theme editor, and a per-tool page.</p>
+<p align="center">
+  <img alt="vinyasa's Theme page: a card per theme with a tiny desktop drawn in its colours, accent swatches below" src="assets/screenshots/vinyasa.png" width="84%">
+</p>
+<h2 id="themes"><a class="anchor" href="#themes">#</a>Themes</h2>
+<div class="table"><table><thead><tr><th>Theme</th><th>Variant</th><th>Accent</th></tr></thead><tbody><tr><td><code>vayu</code></td><td>dark</td><td>mauve, with rose borders: Vayu's own look</td></tr><tr><td><code>catppuccin-mocha</code> / <code>catppuccin-latte</code></td><td>dark / light</td><td>mauve</td></tr><tr><td><code>rose-pine</code> / <code>rose-pine-dawn</code></td><td>dark / light</td><td>iris</td></tr><tr><td><code>tokyo-night</code></td><td>dark</td><td>blue</td></tr><tr><td><code>gruvbox</code></td><td>dark</td><td>yellow</td></tr><tr><td><code>nord</code></td><td>dark</td><td>frost</td></tr><tr><td><code>kanagawa</code></td><td>dark</td><td>violet</td></tr><tr><td><code>everforest</code></td><td>dark</td><td>green</td></tr></tbody></table></div>
+<p><code>varna show &lt;theme&gt;</code> prints its palette and roles as swatches.</p>
+<h2 id="commands"><a class="anchor" href="#commands">#</a>Commands</h2>
+<div class="table"><table><thead><tr><th>Command</th><th>Does</th></tr></thead><tbody><tr><td><code>varna</code> / <code>varna status</code></td><td>The desktop's theme, accent and each tool's pick</td></tr><tr><td><code>varna list</code></td><td>Every theme with its colours (<code>--json</code>)</td></tr><tr><td><code>varna apply [theme]</code></td><td>Switch (or re-apply) and reload every tool (<code>--only tmux,kitty</code>, <code>--no-reload</code>)</td></tr><tr><td><code>varna mode dark|light|toggle</code></td><td>The theme's light or dark twin</td></tr><tr><td><code>varna set &lt;setting&gt; &lt;value&gt;</code></td><td><code>accent</code>, <code>gtk on|off</code>, <code>ui.opacity</code>, <code>ui.gaps</code>, <code>ui.radius</code>, <code>ui.border_width</code>, <code>ui.font</code>, <code>ui.mono</code>, <code>ui.size</code>, <code>ui.mono_size</code></td></tr><tr><td><code>varna show [theme] [--tool t]</code></td><td>Palette and roles as swatches</td></tr><tr><td><code>varna tool &lt;tool&gt; [theme|follow]</code></td><td>One tool's own theme</td></tr><tr><td><code>varna tools</code></td><td>Every tool, its theme, and whether its config includes varna</td></tr><tr><td><code>varna new &lt;name&gt; [--from theme]</code></td><td>A theme of your own</td></tr><tr><td><code>varna edit &lt;theme&gt;</code></td><td>Open it in <code>$EDITOR</code> (a shipped theme is copied first)</td></tr><tr><td><code>varna delete &lt;theme&gt;</code></td><td>Delete a theme of yours</td></tr><tr><td><code>varna template add|remove|list</code></td><td>Theme any file</td></tr><tr><td><code>varna palette [--tool t]</code></td><td>The resolved colours as JSON</td></tr><tr><td><code>varna ensure</code></td><td>Write any missing file without reloading (run at login)</td></tr><tr><td><code>varna doctor</code></td><td>Check every theme and every tool's hook</td></tr></tbody></table></div>
+<p>Shorthand: <code>varna nord</code> = <code>varna apply nord</code>.</p>
+<h2 id="hooking-up-each-tool"><a class="anchor" href="#hooking-up-each-tool">#</a>Hooking up each tool</h2>
+<p>Each tool's config includes varna's file once. <code>varna doctor</code> checks every one and prints the line that's missing; put your current colours in the config before the include, and they become the fallback.</p>
+<div class="table"><table><thead><tr><th>Tool</th><th>Add to</th><th>Line</th></tr></thead><tbody><tr><td>sway</td><td><code>~/.config/sway/config</code>, at the end</td><td><code>include ~/.local/state/varna/sway*.conf</code></td></tr><tr><td>waybar</td><td><code>~/.config/waybar/style.css</code>, at the top</td><td><code>@import &quot;varna.css&quot;;</code> then use <code>@accent</code>, <code>@base</code>, <code>alpha(@red, 0.4)</code>...</td></tr><tr><td>tmux</td><td><code>~/.config/tmux/tmux.conf</code>, at the end</td><td><code>source-file -q ~/.local/state/varna/tmux.conf</code> (formats can use <code>#{@accent}</code>, <code>#{@ink}</code>...)</td></tr><tr><td>kitty</td><td><code>~/.config/kitty/kitty.conf</code>, at the end</td><td><code>include ~/.local/state/varna/kitty.conf</code></td></tr><tr><td>mako</td><td><code>~/.config/mako/config</code>, before the first <code>[section]</code></td><td><code>include=~/.local/state/varna/mako.conf</code></td></tr><tr><td>Vyom</td><td><code>~/.config/vyom/config.toml</code>, <code>[vyom]</code></td><td><code>css = [&quot;~/.local/state/varna/vyom.css&quot;]</code></td></tr><tr><td>Neovim</td><td><code>lua/varna.lua</code></td><td>reads <code>~/.local/state/varna/nvim.lua</code> into catppuccin's <code>color_overrides</code> (<a href="https://github.com/Theyashsawarkar/vayu/blob/main/nvim/.config/nvim/lua/varna.lua">example</a>)</td></tr><tr><td>powerlevel10k</td><td><code>~/.zshrc</code>, after <code>~/.p10k.zsh</code></td><td><code>source ~/.local/state/varna/p10k.zsh</code></td></tr><tr><td>fzf</td><td><code>~/.zshrc</code></td><td><code>source ~/.local/state/varna/fzf.sh</code> (sets <code>FZF_DEFAULT_OPTS</code>, and <code>$VARNA_FZF_COLORS</code> for scripts)</td></tr><tr><td>lazygit</td><td><code>~/.zshrc</code></td><td><code>export LG_CONFIG_FILE=&quot;$HOME/.config/lazygit/config.yml,$HOME/.local/state/varna/lazygit.yml&quot;</code></td></tr><tr><td>swaylock</td><td>your lock command</td><td><code>swaylock $(cat ~/.local/state/varna/swaylock.args)</code></td></tr><tr><td>GTK apps</td><td>nothing: <code>varna set gtk on</code></td><td>links <code>~/.config/gtk-{3,4}.0/gtk.css</code> (libadwaita's named colours)</td></tr></tbody></table></div>
+<p>waybar and mako refuse to start when an included file is missing: run <code>varna ensure</code> before them at login.</p>
+<h2 id="a-tool-with-its-own-theme"><a class="anchor" href="#a-tool-with-its-own-theme">#</a>A tool with its own theme</h2>
+<pre class="code" data-lang="sh"><code>varna tool nvim tokyo-night    # Neovim alone uses Tokyo Night
+varna tool nvim follow         # back to the desktop&#x27;s theme
+varna tools                    # who uses what</code></pre>
+<p><code>~/.config/varna/varna.toml</code> (written by varna and vinyasa; edit freely):</p>
+<pre class="code" data-lang="toml"><code>theme = &quot;rose-pine&quot;
+accent = &quot;iris&quot;            # optional: a palette name or a hex
+gtk = true
+
+[ui]
+gaps = 8
+opacity = 0.9
+
+[tools]
+nvim = &quot;tokyo-night&quot;
+kitty = { opacity = 0.95 }  # or just tweak one value for one tool</code></pre>
+<h2 id="making-a-theme"><a class="anchor" href="#making-a-theme">#</a>Making a theme</h2>
+<pre class="code" data-lang="sh"><code>varna new &quot;Rose Dusk&quot; --from vayu     # ~/.config/varna/themes/rose-dusk.toml
+varna edit rose-dusk
+varna apply rose-dusk</code></pre>
+<pre class="code" data-lang="toml"><code>[meta]
+name = &quot;Rose Dusk&quot;
+variant = &quot;dark&quot;          # &quot;light&quot; for a light theme
+light = &quot;rose-dawn&quot;       # optional: its twin, for `varna mode`
+
+[palette]                 # these 26 names (Catppuccin&#x27;s), all #rrggbb
+crust = &quot;#11111b&quot;  mantle = &quot;#181825&quot;  base = &quot;#1e1e2e&quot;  # ... text, red, green, blue, mauve ...
+
+[roles]                   # optional: a palette name, another role, or a hex
+accent = &quot;mauve&quot;          # the active workspace, tmux session, selections
+accent2 = &quot;pink&quot;          # popup and pane borders
+border = &quot;accent&quot;         # the focused window
+urgent = &quot;red&quot;
+ink = &quot;crust&quot;             # text on a coloured capsule
+
+[ui]                      # optional
+radius = 12
+gaps = 4
+
+[tools.tmux]              # optional: extra colours one tool&#x27;s template asks for
+window_idle = &quot;#9a9faa&quot;</code></pre>
+<p>Roles not set take their defaults (<code>varna show</code> lists them all).</p>
+<h2 id="theming-any-file"><a class="anchor" href="#theming-any-file">#</a>Theming any file</h2>
+<p>Any file can be a template: <code>{{accent}}</code> and friends are replaced on every apply.</p>
+<pre class="code" data-lang="sh"><code>varna template add ~/.config/foo/config.varna ~/.config/foo/config --tool foo</code></pre>
+<div class="table"><table><thead><tr><th>Write</th><th>Get</th></tr></thead><tbody><tr><td><code>{{accent}}</code></td><td><code>#cba6f7</code></td></tr><tr><td><code>{{accent:upper}}</code> / <code>{{accent:bare}}</code></td><td><code>#CBA6F7</code> / <code>cba6f7</code></td></tr><tr><td><code>{{base:a=0.35}}</code></td><td><code>#1e1e2e59</code> (with alpha)</td></tr><tr><td><code>{{red:rgb}}</code> / <code>{{red:rgba=0.4}}</code></td><td><code>243, 139, 168</code> / <code>rgba(243, 139, 168, 0.4)</code></td></tr><tr><td><code>{{red:alpha=0.4}}</code></td><td><code>alpha(#f38ba8, 0.4)</code> (GTK CSS)</td></tr><tr><td><code>{{peach:mix=base:0.3}}</code></td><td>peach blended 30 % toward base</td></tr><tr><td><code>{{window_idle|overlay1}}</code></td><td>a fallback when the theme lacks a name</td></tr><tr><td><code>{{gaps}}</code>, <code>{{font}}</code>, <code>{{theme_name}}</code></td><td>ui values and the theme's name</td></tr><tr><td><code>?swayfx corner_radius 12</code></td><td>the line only on SwayFX</td></tr></tbody></table></div>
+<p>An unknown name is an error, so a typo never ships a broken colour.</p>
+<h2 id="for-tool-authors"><a class="anchor" href="#for-tool-authors">#</a>For tool authors</h2>
+<p><code>~/.local/state/varna/palette.json</code> has the desktop's colours, roles and ui values, and a <code>tools</code> table with each tool's own pick. Read it at start, and watch its modification time to recolour live:</p>
+<pre class="code" data-lang="python"><code>import json, os
+p = os.path.expanduser(&quot;~/.local/state/varna/palette.json&quot;)
+try:
+    data = json.load(open(p))
+    colors = data.get(&quot;tools&quot;, {}).get(&quot;mytool&quot;, data)[&quot;colors&quot;]   # my own pick, else the desktop&#x27;s
+except (OSError, ValueError, KeyError):
+    colors = {}                                                    # no varna: keep my defaults
+accent = colors.get(&quot;accent&quot;, &quot;#cba6f7&quot;)</code></pre>
+<h2 id="troubleshooting"><a class="anchor" href="#troubleshooting">#</a>Troubleshooting</h2>
+<ul><li><strong>A tool didn't change</strong>: <code>varna tools</code> shows whether its config includes varna; <code>varna doctor</code> prints the line to add.</li><li><strong>waybar or mako won't start</strong>: their included file is missing; <code>varna ensure</code>.</li><li><strong>The prompt, fzf, lazygit or lock screen didn't change</strong>: they take it on their next start (a new shell, the next lock).</li><li><strong>GTK apps keep their old look</strong>: <code>varna set gtk on</code>; apps that ignore <code>gtk.css</code> still get the dark/light signal.</li></ul>
+<h2 id="contributing"><a class="anchor" href="#contributing">#</a>Contributing</h2>
+<p>New themes, tool templates and fixes are welcome: see <a href="https://github.com/Theyashsawarkar/varna/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>. Design decisions are in <a href="https://github.com/Theyashsawarkar/varna/blob/main/docs/adr">docs/adr</a>.</p>
+<h2 id="license"><a class="anchor" href="#license">#</a>License</h2>
+<p><a href="https://github.com/Theyashsawarkar/varna/blob/main/LICENSE">MIT</a>. The shipped themes' palettes are from their projects (credited in each file), all MIT or Apache-2.0.</p>
+</article></div>
+<footer><div class="in"><div><h4>Desktop</h4><a href="https://theyashsawarkar.github.io/vayu/" class="">vayu <span>वायु · the keyboard-driven Wayland desktop</span></a></div><div><h4>Apps</h4><a href="https://theyashsawarkar.github.io/kosha/" class="">kosha <span>कोश · package manager</span></a><a href="https://theyashsawarkar.github.io/nada/" class="">nada <span>नाद · music player</span></a><a href="https://theyashsawarkar.github.io/sangam/" class="">sangam <span>संगम · pull requests in the terminal</span></a><a href="https://theyashsawarkar.github.io/anumati/" class="">anumati <span>अनुमति · root commands for AI agents</span></a><a href="https://theyashsawarkar.github.io/vesha/" class="">vesha <span>वेष · Claude Code accounts</span></a><a href="https://theyashsawarkar.github.io/varna/" class="me">varna <span>वर्ण · theme engine</span></a><a href="https://theyashsawarkar.github.io/vinyasa/" class="">vinyasa <span>विन्यास · settings</span></a></div><div><h4>Vyom</h4><a href="https://theyashsawarkar.github.io/vyom/" class="">vyom <span>व्योम · panels runtime</span></a></div><div><h4>Vyom tools</h4><a href="https://theyashsawarkar.github.io/dvara/" class="">dvara <span>द्वार · apps</span></a><a href="https://theyashsawarkar.github.io/ganit/" class="">ganit <span>गणित · calculator</span></a><a href="https://theyashsawarkar.github.io/smriti/" class="">smriti <span>स्मृति · clipboard</span></a><a href="https://theyashsawarkar.github.io/bhava/" class="">bhava <span>भाव · emoji</span></a><a href="https://theyashsawarkar.github.io/tarang/" class="">tarang <span>तरंग · Wi‑Fi</span></a><a href="https://theyashsawarkar.github.io/setu/" class="">setu <span>सेतु · Bluetooth</span></a><a href="https://theyashsawarkar.github.io/doot/" class="">doot <span>दूत · phone</span></a><a href="https://theyashsawarkar.github.io/patra/" class="">patra <span>पात्र · Docker</span></a><a href="https://theyashsawarkar.github.io/suchana/" class="">suchana <span>सूचना · notifications</span></a><a href="https://theyashsawarkar.github.io/raga/" class="">raga <span>राग · YouTube</span></a><a href="https://theyashsawarkar.github.io/mudra/" class="">mudra <span>मुद्रा · keybindings</span></a><a href="https://theyashsawarkar.github.io/urja/" class="">urja <span>ऊर्जा · battery</span></a><a href="https://theyashsawarkar.github.io/vishram/" class="">vishram <span>विश्राम · power menu</span></a><a href="https://theyashsawarkar.github.io/kendra/" class="">kendra <span>केन्द्र · quick settings</span></a></div></div>
+<div class="bottom">varna is free software under the MIT license · <a href="https://github.com/Theyashsawarkar/varna">source</a> · <a href="https://github.com/Theyashsawarkar/varna/issues">issues</a> · <a href="changelog.html">changelog</a> · part of <a href="https://theyashsawarkar.github.io/vayu/">Vayu</a></div></footer>
+<script>
+document.querySelectorAll('pre.code').forEach(p=>{const b=document.createElement('button');b.className='copy';b.textContent='Copy';
+b.onclick=()=>{navigator.clipboard.writeText(p.innerText.replace(/^Copy/,'')).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)})};p.appendChild(b)});
+const links=[...document.querySelectorAll('.toc a')];if(links.length){const hs=links.map(a=>document.getElementById(a.hash.slice(1))).filter(Boolean);
+const on=()=>{let cur=hs[0];for(const h of hs){if(h.getBoundingClientRect().top<120)cur=h}links.forEach(a=>a.classList.toggle('on',cur&&a.hash==='#'+cur.id))};
+addEventListener('scroll',on,{passive:true});on()}
+</script>
+</body>
+</html>
