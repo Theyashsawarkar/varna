@@ -55,8 +55,10 @@ ROLE_DEFAULTS = {
     "mark": "pink",
     "ok": "green", "warn": "yellow", "error": "red", "info": "blue",
 }
+# opacity: the terminal's background. glass: every floating panel's (Vyom,
+# nāda, vinyasa, notifications), one value so they all look alike.
 UI_DEFAULTS = {"font": "Sans", "mono": "JetBrainsMono Nerd Font", "size": 11, "mono_size": 12,
-               "radius": 12, "opacity": 0.85, "gaps": 4, "border_width": 2}
+               "radius": 12, "opacity": 0.85, "glass": 0.55, "gaps": 4, "border_width": 2}
 HEX = re.compile(r"^#?([0-9a-fA-F]{6})([0-9a-fA-F]{2})?$")
 
 # Every tool varna themes: its template, where the result goes, how it reloads.
@@ -290,6 +292,11 @@ def resolve(conf, tool=None):
     ui.update(conf.get("ui") or {})
     ui.update({k: v for k, v in pick.items() if k in UI_DEFAULTS})
     ctx.update(ui)
+    # glass as a hex alpha byte, for "#rrggbbaa" colours (mako): {{crust}}{{glass_aa}}
+    try:
+        ctx["glass_aa"] = f"{round(min(1.0, max(0.0, float(ctx['glass']))) * 255):02x}"
+    except (TypeError, ValueError):
+        ctx["glass_aa"] = "8c"
     ctx["variant"] = t["meta"]["variant"]
     ctx["dark"] = "true" if t["meta"]["variant"] == "dark" else "false"
     ctx["theme"] = tid
@@ -713,8 +720,18 @@ def set_value(key, value):
         k = key[3:]
         if value in ("", "default"):
             conf["ui"].pop(k, None)
+        elif isinstance(UI_DEFAULTS[k], str):
+            conf["ui"][k] = value
         else:
-            conf["ui"][k] = type(UI_DEFAULTS[k])(value) if not isinstance(UI_DEFAULTS[k], str) else value
+            try:
+                v = type(UI_DEFAULTS[k])(value)
+            except ValueError:
+                raise VarnaError(f"ui.{k} takes a number, not {value!r}") from None
+            if k in ("opacity", "glass") and not 0 <= v <= 1:
+                raise VarnaError(f"ui.{k} is between 0 (clear) and 1 (solid), not {value}")
+            if v < 0:
+                raise VarnaError(f"ui.{k} can't be negative")
+            conf["ui"][k] = v
     else:
         raise VarnaError(f"unknown setting {key}: theme, accent, gtk, ui.{'/ui.'.join(UI_DEFAULTS)}")
     save_config(conf)

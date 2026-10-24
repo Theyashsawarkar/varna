@@ -125,7 +125,7 @@ per-tool page.
 | `varna list` | Every theme with its colours (`--json`) |
 | `varna apply [theme]` | Switch (or re-apply) and reload every tool (`--only tmux,kitty`, `--no-reload`) |
 | `varna mode dark\|light\|toggle` | The theme's light or dark twin |
-| `varna set <setting> <value>` | `accent`, `gtk on\|off`, `ui.opacity`, `ui.gaps`, `ui.radius`, `ui.border_width`, `ui.font`, `ui.mono`, `ui.size`, `ui.mono_size` |
+| `varna set <setting> <value>` | `accent`, `gtk on\|off`, `ui.opacity`, `ui.glass`, `ui.gaps`, `ui.radius`, `ui.border_width`, `ui.font`, `ui.mono`, `ui.size`, `ui.mono_size` |
 | `varna show [theme] [--tool t]` | Palette and roles as swatches |
 | `varna tool <tool> [theme\|follow]` | One tool's own theme |
 | `varna tools` | Every tool, its theme, and whether its config includes varna |
@@ -181,7 +181,8 @@ gtk = true
 
 [ui]
 gaps = 8
-opacity = 0.9
+opacity = 0.9              # the terminal's background
+glass = 0.55               # every floating panel's: Vyom, nāda, vinyasa, notifications (one look)
 
 [tools]
 nvim = "tokyo-night"

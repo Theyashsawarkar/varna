@@ -42,3 +42,6 @@
 @define-color warn {{warn}};
 @define-color error {{error}};
 @define-color info {{info}};
+
+/* The panel's glass: ui.glass, shared with nāda, vinyasa and notifications. */
+.vyom-panel { background-color: alpha(@base, {{glass}}); }

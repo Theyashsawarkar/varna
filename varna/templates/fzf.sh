@@ -1,5 +1,5 @@
 # fzf colours, sourced by ~/.zshrc and the tmux pickers.
-VARNA_FZF_COLORS='bg:-1,bg+:{{selected|surface0}},fg:{{fg}},fg+:{{text}},hl:{{accent2}},hl+:{{accent2}},border:{{accent2}},label:{{accent2}},prompt:{{accent2}},pointer:{{accent2}},info:{{muted}},query:{{fg}},ghost:{{overlay0}},input-border:{{accent2}},input-label:{{accent2}},list-border:{{frame}},list-label:{{accent2}},footer-border:{{frame}},footer-label:{{subtext0}},preview-border:{{frame}},preview-label:{{subtext0}},header:{{subtext0}},header-border:{{frame}},header-label:{{subtext0}},spinner:{{accent}},marker:{{accent}}'
+VARNA_FZF_COLORS='bg:-1,bg+:{{selected|surface0}},fg:{{fg}},fg+:{{text}},hl:{{accent2}},hl+:{{accent2}},border:{{accent}},label:{{accent}},prompt:{{accent}},pointer:{{accent}},info:{{muted}},query:{{fg}},ghost:{{overlay0}},input-border:{{accent}},input-label:{{accent}},list-border:{{frame}},list-label:{{accent}},footer-border:{{frame}},footer-label:{{subtext0}},preview-border:{{frame}},preview-label:{{subtext0}},header:{{subtext0}},header-border:{{frame}},header-label:{{subtext0}},spinner:{{accent}},marker:{{accent}}'
 export VARNA_FZF_COLORS
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS:+$FZF_DEFAULT_OPTS }--color=$VARNA_FZF_COLORS"
 # The theme as r;g;b, for scripts' own colours: printf '\e[38;2;%sm' "$VARNA_RGB_ACCENT"

@@ -108,6 +108,13 @@ class Config(unittest.TestCase):
         for k in ("theme", "accent", "gtk", "tools", "ui", "disabled", "template"):
             self.assertEqual(back[k], conf[k], k)
 
+    def test_ui_numbers_are_checked(self):
+        for key, bad in (("ui.glass", "2"), ("ui.opacity", "-0.1"), ("ui.glass", "lots"), ("ui.gaps", "-4")):
+            with self.subTest(key=key, value=bad), self.assertRaises(core.VarnaError):
+                core.set_value(key, bad)
+        self.assertEqual(core.set_value("ui.glass", "0.6")["ui"]["glass"], 0.6)
+        core.set_value("ui.glass", "default")
+
     def test_set_value_validates(self):
         core.save_config({"theme": "vayu", "tools": {}, "ui": {}})
         core.set_value("ui.gaps", "8")

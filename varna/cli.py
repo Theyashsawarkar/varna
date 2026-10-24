@@ -29,8 +29,8 @@ COMMANDS = {
     "set": dict(group="Theme", aliases=[], args="<setting> <value>",
                 summary="Change one setting: accent, gtk, ui.opacity, ui.gaps, ui.radius, ui.font...",
                 description="accent takes a palette name (mauve, blue...) or a #hex, or `default` for the theme's own. "
-                            "gtk on/off themes GTK apps too. ui.* values: font, mono, size, mono_size, radius, opacity, "
-                            "gaps, border_width (`default` drops yours). Applies right away.",
+                            "gtk on/off themes GTK apps too. ui.* values: font, mono, size, mono_size, radius, opacity (the terminal's), "
+                            "glass (every floating panel's), gaps, border_width (`default` drops yours). Applies right away.",
                 examples=["varna set accent blue", "varna set ui.gaps 8", "varna set gtk on"]),
     "tool": dict(group="Tools", aliases=[], args="<tool> [theme|follow]",
                  summary="Give one tool its own theme (or make it follow the desktop again)",

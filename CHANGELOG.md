@@ -2,6 +2,21 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## v0.1.9 -- 2026-10-24
+
+- **One glass for every panel.** A new `ui.glass` (default 0.55) is the
+  background opacity of every floating panel: Vyom's (through its
+  vyom.css), nāda's, vinyasa's and the notifications (mako), so they look
+  alike in every theme. They used three different values (0.55, 0.62,
+  0.85), and vinyasa used `ui.opacity`, which is the terminal's.
+- Notifications use the interface font (`ui.font`), like the panels, not
+  the monospace one.
+- tmux popups and menus, and the fzf pickers inside them, are framed in
+  the theme's accent like every other popup (they used the second accent).
+- `varna set` checks numbers: `ui.opacity` and `ui.glass` between 0 and 1,
+  nothing negative, and a clear error for a value that isn't a number (it
+  was a Python traceback).
+
 ## v0.1.8 -- 2026-10-24
 
 - **tmux bar colours that never collide.** The bar filled every capsule
