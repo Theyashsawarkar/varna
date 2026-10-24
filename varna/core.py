@@ -77,6 +77,7 @@ TOOLS = {
     "swaylock": dict(label="Lock screen (swaylock)", template="swaylock.conf", out="swaylock.args", reload=None, header=False),
     "btop": dict(label="btop", template="btop.theme", out="btop.theme", reload=None),
     "btop-config": dict(label="btop (its config)", template="btop.conf", out="btop.conf", reload=None, keep=True),
+    "zathura": dict(label="PDF viewer (zathura)", template="zathurarc", out="zathurarc", reload=None),
     "gtk": dict(label="GTK apps", template="gtk.css", out="gtk.css", reload="gtk", optional=True),
     "apps": dict(label="Vayu's tools (vesha, nāda, vinyasa…)", template=None, out="palette.json", reload=None),
 }
@@ -96,6 +97,7 @@ HOOKS = {
     "lazygit": ("~/.zshrc", "varna/lazygit.yml",
                 'export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.local/state/varna/lazygit.yml"'),
     "btop": ("~/.config/tmux/tmux.conf", "varna/btop.conf", "btop -c ~/.local/state/varna/btop.conf   (your btop command or popup)"),
+    "zathura": ("~/.config/zathura/zathurarc", "varna/zathurarc", "include ../../.local/state/varna/zathurarc   (at the end; zathura reads it relative to its config and expands no ~)"),
     "swaylock": ("~/.config/sway/config", "swaylock.args|vayu-lock", "swaylock $(cat ~/.local/state/varna/swaylock.args)   (or Vayu's vayu-lock)"),
 }
 

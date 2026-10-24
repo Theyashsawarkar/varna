@@ -2,6 +2,13 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## v0.1.10 -- 2026-10-24
+
+- **zathura** (the PDF viewer): its colours, and pages recoloured to the
+  theme with their hues kept (Ctrl+r shows the original). Include
+  `../../.local/state/varna/zathurarc` at the end of your zathurarc
+  (zathura reads it relative to the file and expands no `~`).
+
 ## v0.1.9 -- 2026-10-24
 
 - **One glass for every panel.** A new `ui.glass` (default 0.55) is the

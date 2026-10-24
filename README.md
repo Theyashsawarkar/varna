@@ -52,7 +52,7 @@ changes within a second, reloaded in place.
 
 - **Thirteen tools from one theme**: sway (borders, gaps, corners), waybar,
   tmux (bar, borders, popups, copy mode), kitty, mako, Vyom panels, Neovim,
-  powerlevel10k, fzf, lazygit, swaylock, btop and GTK apps, plus a JSON palette any
+  powerlevel10k, fzf, lazygit, swaylock, btop, zathura and GTK apps, plus a JSON palette any
   program can read.
 - **Live**: every running tool reloads in place (sway, waybar, every tmux
   server, every kitty window, every Neovim through its socket, mako, Vyom).
@@ -159,6 +159,7 @@ config before the include, and they become the fallback.
 | lazygit | `~/.zshrc` | `export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.local/state/varna/lazygit.yml"` |
 | swaylock | your lock command | `swaylock $(cat ~/.local/state/varna/swaylock.args)` |
 | btop | your btop command | `btop -c ~/.local/state/varna/btop.conf` (varna sets its theme there; btop keeps its other settings in it) |
+| zathura | `~/.config/zathura/zathurarc`, at the end | `include ../../.local/state/varna/zathurarc` (relative to the zathurarc: zathura expands no `~`; pages recoloured to the theme; Ctrl+r toggles) |
 | GTK apps | nothing: `varna set gtk on` | links `~/.config/gtk-{3,4}.0/gtk.css` (libadwaita's named colours) |
 
 waybar and mako refuse to start when an included file is missing: run
