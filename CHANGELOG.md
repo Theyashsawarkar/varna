@@ -2,6 +2,11 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## v0.1.11 -- 2026-10-24
+
+- A line in 0.1.10 was longer than the lint allows (CI failed); no change
+  in behaviour.
+
 ## v0.1.10 -- 2026-10-24
 
 - **zathura** (the PDF viewer): its colours, and pages recoloured to the

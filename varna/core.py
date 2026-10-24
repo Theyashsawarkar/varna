@@ -97,7 +97,8 @@ HOOKS = {
     "lazygit": ("~/.zshrc", "varna/lazygit.yml",
                 'export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.local/state/varna/lazygit.yml"'),
     "btop": ("~/.config/tmux/tmux.conf", "varna/btop.conf", "btop -c ~/.local/state/varna/btop.conf   (your btop command or popup)"),
-    "zathura": ("~/.config/zathura/zathurarc", "varna/zathurarc", "include ../../.local/state/varna/zathurarc   (at the end; zathura reads it relative to its config and expands no ~)"),
+    "zathura": ("~/.config/zathura/zathurarc", "varna/zathurarc",
+                "include ../../.local/state/varna/zathurarc   (at the end; relative to the zathurarc, no ~)"),
     "swaylock": ("~/.config/sway/config", "swaylock.args|vayu-lock", "swaylock $(cat ~/.local/state/varna/swaylock.args)   (or Vayu's vayu-lock)"),
 }
 
