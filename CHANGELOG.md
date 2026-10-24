@@ -2,6 +2,21 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## v0.1.8 -- 2026-10-24
+
+- **tmux bar colours that never collide.** The bar filled every capsule
+  with its own colour, about 12 at once, and themes have 6 to 8: in Rosé
+  Pine the current window and the Claude usage capsule were the same teal,
+  PRs the session's purple, "Claude waiting" nearly "usage full" (41 such
+  pairs across the 10 themes). The template now has the roles for a bar
+  where only "look here" capsules are solid (`@prefix`, `@copy`, `@window`,
+  `@attention`, plus `@accent` and `@error`) and the rest are soft pills
+  (`@soft_bg`, `@soft_fg`, `@soft_dim`; `@warn_bg` tints a warning pill).
+  Gruvbox, Nord, Rosé Pine, Tokyo Night, Everforest and Vayu set
+  `[tools.tmux]` overrides where their own colours are too close, and a test
+  checks every theme keeps the solid capsules apart. `@peach` and `@sage`
+  stay, as the prefix and copy-mode colours, for older tmux configs.
+
 ## v0.1.7 -- 2026-10-21
 
 - **Popup frames you can see**: a new `frame` role (overlay1 by default)

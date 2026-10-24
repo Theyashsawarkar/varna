@@ -37,3 +37,9 @@ lavender = "#b4b0c8"
 [roles]
 accent = "green"
 accent2 = "teal"
+
+[tools.tmux]
+# The bar's solid capsules must differ (tests/test_varna.py): these keep them apart.
+window = "blue"
+attention = "pink"
+prefix = "#e6e2cc"

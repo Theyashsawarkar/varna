@@ -45,6 +45,8 @@ match = "#d4b25c"
 mark = "#c282ce"
 
 [tools.tmux]
+# The bar's solid capsules must differ (tests/test_varna.py): these keep them apart.
+attention = "#c282ce"
 window_idle = "#9a9faa"
 prefix = "#f2a97e"
 copy = "#9ed1a6"

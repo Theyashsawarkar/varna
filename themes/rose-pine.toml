@@ -41,4 +41,6 @@ accent = "mauve"
 accent2 = "teal"
 
 [tools.tmux]
+# The bar's solid capsules must differ (tests/test_varna.py): these keep them apart.
+attention = "rosewater"
 devservers = "rosewater"

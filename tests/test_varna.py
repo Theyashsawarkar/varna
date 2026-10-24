@@ -1,5 +1,7 @@
+import itertools
 import json
 import os
+import re
 import sys
 import tempfile
 import unittest
@@ -33,6 +35,21 @@ class Themes(unittest.TestCase):
         self.assertEqual(values["accent2"], "#f5c2e7")
         self.assertEqual(values["urgent"], "#dc2626")
         self.assertEqual(values["window_idle"], "#9a9faa")   # a tmux extra
+
+
+    def test_tmux_bar_capsules_stay_apart(self):
+        """The bar's solid capsules can be on screen together (the session in
+        any of its states, the current window, Claude waiting, usage full):
+        in every theme they must be told apart at a glance."""
+        far = 45   # RGB distance; below this two fills read as the same colour
+        for tid in core.theme_paths():
+            _, text = core.render_tool({"theme": tid, "tools": {}, "ui": {}, "disabled": [], "template": [], "gtk": True}, "tmux")
+            v = dict(re.findall(r'set -g @(\w+) "(#[0-9a-f]{6})"', text))
+            solid = {k: v[k] for k in ("accent", "prefix", "copy", "window", "attention", "error")}
+            for (a, ca), (b, cb) in itertools.combinations(solid.items(), 2):
+                d = sum((x - y) ** 2 for x, y in zip(core.hex_rgb(ca), core.hex_rgb(cb), strict=True)) ** .5
+                with self.subTest(theme=tid, pair=f"{a}/{b}"):
+                    self.assertGreaterEqual(d, far, f"{tid}: @{a} {ca} and @{b} {cb} look the same")
 
 
 class Render(unittest.TestCase):
