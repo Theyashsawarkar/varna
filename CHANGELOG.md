@@ -2,6 +2,12 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## v0.1.12 -- 2026-10-27
+
+- tmux: `@mail` and `@chat`, the icon colours of the bar's unread mail and
+  chat capsule (a theme's `mail` / `chat` in `[tools.tmux]`, else its
+  yellow and teal).
+
 ## v0.1.11 -- 2026-10-24
 
 - A line in 0.1.10 was longer than the lint allows (CI failed); no change
