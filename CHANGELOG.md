@@ -2,6 +2,10 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## Unreleased
+
+- A logo and a shloka at the top of the README and the website: every Vayu tool has them now.
+
 ## v0.1.12 -- 2026-10-27
 
 - tmux: `@mail` and `@chat`, the icon colours of the bar's unread mail and

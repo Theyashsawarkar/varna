@@ -6,6 +6,15 @@
   </picture>
 </p>
 
+<!-- identity -->
+<p align="center">
+  <b>पश्य मे पार्थ रूपाणि शतशोऽथ सहस्रशः ।<br>
+  नानाविधानि दिव्यानि नानावर्णाकृतीनि च ॥</b><br>
+  <i>See my forms, by the hundreds and thousands: many kinds, divine, of many colours and shapes.</i><br>
+  <sub>Bhagavad Gītā 11.5</sub>
+</p>
+<!-- /identity -->
+
 <p align="center">
   <b>One theme for every tool.</b><br>
   Pick a theme once and sway, waybar, tmux, kitty, Neovim, your notifications, prompt, lock screen and panels all take it, live, with any tool free to keep a theme of its own.

@@ -6,3 +6,6 @@ tagline = "One theme for every tool: sway, waybar, tmux, kitty, Neovim, notifica
 color = "pink"
 kind = "theme engine"
 logo = "assets/logo.svg"
+shloka = "पश्य मे पार्थ रूपाणि शतशोऽथ सहस्रशः ।\nनानाविधानि दिव्यानि नानावर्णाकृतीनि च ॥"
+shloka_meaning = "See my forms, by the hundreds and thousands: many kinds, divine, of many colours and shapes."
+shloka_source = "Bhagavad Gītā 11.5"
