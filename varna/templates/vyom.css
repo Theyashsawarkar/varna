@@ -45,3 +45,12 @@
 
 /* The panel's glass: ui.glass, shared with nāda, vinyasa and notifications. */
 .vyom-panel { background-color: alpha(@base, {{glass}}); }
+
+/* akashvani's notification popups: the panels' glass, kept mostly solid (text must
+   read over any window or wallpaper, light themes too), the desktop's fonts, the theme's
+   corners. */
+.akv-card, .akv-osd, button.akv-more { background-color: mix(alpha(@crust, {{glass}}), @crust, 0.85); }
+.akv-card, .akv-osd { border-radius: {{radius}}px; }
+.akashvani-toasts { font-family: "{{font}}"; }
+.akv-time, .akv-tag, .akv-count, .akv-kc, .akv-value, .akv-osd-value, .akv-number,
+.akv-older-time, .akv-appicon-letter { font-family: "{{mono}}"; }

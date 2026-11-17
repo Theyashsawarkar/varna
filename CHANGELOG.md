@@ -2,8 +2,11 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
-## Unreleased
+## v0.1.13 -- 2026-11-17
 
+- Vyom: akashvani's notification popups follow the theme too: the panels' glass
+  (kept mostly solid so text reads over anything, light themes too), the
+  desktop's fonts and the theme's corner radius.
 - Every corner is rounded: the website's callouts.
 - A logo and a shloka at the top of the README and the website: every Vayu tool has them now.
 
