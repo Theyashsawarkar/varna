@@ -1,71 +1,86 @@
-# Vayu: Vayu's own look: Catppuccin Mocha glass with rose and mauve
+# Vayu: Vayu's own look: Spatial, graphite glass that floats, colour only where it means something
 
 [meta]
 name = "Vayu"
 variant = "dark"
-description = "Vayu's own look: Catppuccin Mocha glass with rose and mauve"
+description = "Vayu's own look: Spatial, graphite glass that floats, colour only where it means something"
 
+# Neutral graphite (no blue or purple cast); the hues are soft and kept for
+# meaning: red danger, green done, yellow waiting, peach look here.
 [palette]
-crust = "#11111b"
-mantle = "#181825"
-base = "#1e1e2e"
-surface0 = "#313244"
-surface1 = "#45475a"
-surface2 = "#585b70"
-overlay0 = "#6c7086"
-overlay1 = "#7f849c"
-overlay2 = "#9399b2"
-subtext0 = "#a6adc8"
-subtext1 = "#bac2de"
-text = "#cdd6f4"
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
+crust = "#0e0f11"
+mantle = "#141518"
+base = "#1b1c20"
+surface0 = "#2a2c31"
+surface1 = "#3a3c42"
+surface2 = "#4b4e55"
+overlay0 = "#6a6d74"
+overlay1 = "#80838a"
+overlay2 = "#989ba1"
+subtext0 = "#b3b5ba"
+subtext1 = "#cdcfd3"
+text = "#f2f2f0"
+rosewater = "#f6e1d8"
+flamingo = "#f4c6c0"
+pink = "#f4b4cc"
+mauve = "#c9b6f2"
+red = "#ff9389"
+maroon = "#f0a6a0"
+peach = "#f7b07d"
+yellow = "#f3d47f"
+green = "#8ee2a6"
+teal = "#82ddd5"
+sky = "#8fd6ec"
+sapphire = "#7cc3ec"
+blue = "#93c4ff"
+lavender = "#b8c2ff"
 
+# Where you are is brighter glass, not a hue: the accent is a warm near-white
+# (dark text on it), the second accent a soft silver.
 [roles]
-accent = "mauve"
-accent2 = "pink"
-border_inactive = "surface1"
-urgent = "#dc2626"
-ink = "#0b0e14"
-fg = "#d7dde6"
-line = "#3b4048"
-match = "#d4b25c"
-mark = "#c282ce"
+accent = "#f4f4f2"
+accent2 = "#c9ccd2"
+border = "#8a8d93"
+border_inactive = "#2a2c31"
+urgent = "#e5534b"
+ink = "#0e0f11"
+fg = "#e8e8e6"
+line = "#2f3136"
+frame = "overlay0"
+selection = "surface1"
+match = "#f3d47f"
+mark = "#f7b07d"
+
+# Very round, thin rims, more air between windows; panels are dark glass.
+[ui]
+radius = 20
+opacity = 0.82
+glass = 0.44
+gaps = 8
+border_width = 1
 
 [tools.tmux]
 # The bar's solid capsules must differ (tests/test_varna.py): these keep them apart.
-attention = "#c282ce"
-window_idle = "#9a9faa"
-prefix = "#f2a97e"
-copy = "#9ed1a6"
-prs = "#c282ce"
-docker = "#6c8ebf"
+attention = "#f3d47f"
+window_idle = "#9a9da3"
+prefix = "#93c4ff"
+copy = "#8ee2a6"
+prs = "#93c4ff"
+docker = "#7cc3ec"
 
 [tools.prompt]
-error_prompt = "#b8503f"
-clean = "#93a683"
-modified = "#d4a857"
-untracked = "#a79885"
-jobs = "#7c93a8"
+error_prompt = "#ff9389"
+clean = "#8ee2a6"
+modified = "#f3d47f"
+untracked = "#b3b5ba"
+jobs = "#93c4ff"
 
 [tools.lazygit]
-options = "#6c8ebf"
-selected = "#2a2d35"
-selected_inactive = "#1e2128"
-picked = "#9ed1a6"
-unstaged = "#f2a97e"
+options = "#93c4ff"
+selected = "#2a2c31"
+selected_inactive = "#202125"
+picked = "#8ee2a6"
+unstaged = "#f7b07d"
 
 [tools.fzf]
-selected = "#2a2d35"
+selected = "#2a2c31"

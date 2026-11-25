@@ -2,6 +2,16 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## v0.1.14 -- 2026-11-25
+
+- **The Vayu theme is Spatial now**: neutral graphite glass instead of
+  Catppuccin Mocha, near-white for where you are (selection is brighter glass,
+  not mauve), and soft hues kept for meaning only (red danger, green done,
+  yellow waiting, peach look here). It also sets the shape: radius 20, glass
+  0.44, gaps 8, 1 px borders. The old look is `varna apply catppuccin-mocha`.
+  ADR 0006 says why.
+- tmux: in Vayu, Claude waiting is yellow (waiting) and the prefix capsule blue.
+
 ## v0.1.13 -- 2026-11-17
 
 - Vyom: akashvani's notification popups follow the theme too: the panels' glass

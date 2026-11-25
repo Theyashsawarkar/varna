@@ -115,7 +115,7 @@ per-tool page.
 
 | Theme | Variant | Accent |
 | --- | --- | --- |
-| `vayu` | dark | mauve, with rose borders: Vayu's own look |
+| `vayu` | dark | near-white on graphite glass, colour only for meaning: Vayu's own look (Spatial) |
 | `catppuccin-mocha` / `catppuccin-latte` | dark / light | mauve |
 | `rose-pine` / `rose-pine-dawn` | dark / light | iris |
 | `tokyo-night` | dark | blue |

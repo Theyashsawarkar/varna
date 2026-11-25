@@ -29,12 +29,14 @@ class Themes(unittest.TestCase):
             self.assertEqual(values["variant"], "light")
             self.assertGreater(core.luminance(values["base"]), core.luminance(values["text"]))
 
-    def test_vayu_keeps_todays_colours(self):
+    def test_vayu_is_spatial(self):
+        """Vayu's own look: where you are is near-white glass, not a hue."""
         values, _ = core.resolve({"theme": "vayu"}, "tmux")
-        self.assertEqual(values["accent"], "#cba6f7")
-        self.assertEqual(values["accent2"], "#f5c2e7")
-        self.assertEqual(values["urgent"], "#dc2626")
-        self.assertEqual(values["window_idle"], "#9a9faa")   # a tmux extra
+        self.assertEqual(values["accent"], "#f4f4f2")
+        self.assertEqual(values["accent2"], "#c9ccd2")
+        self.assertEqual(values["urgent"], "#e5534b")
+        self.assertEqual(values["window_idle"], "#9a9da3")   # a tmux extra
+        self.assertEqual((values["radius"], values["gaps"], values["glass"]), (20, 8, 0.44))
 
 
     def test_tmux_bar_capsules_stay_apart(self):
@@ -141,7 +143,7 @@ class Apply(unittest.TestCase):
         open(src, "w").write("color={{accent:upper}}\n")
         conf = {"theme": "vayu", "tools": {}, "ui": {}, "disabled": [], "template": [{"src": src, "dst": os.path.join(ROOT, "x")}]}
         core.apply(conf, reload=False)
-        self.assertEqual(open(os.path.join(ROOT, "x")).read(), "color=#CBA6F7\n")
+        self.assertEqual(open(os.path.join(ROOT, "x")).read(), "color=#F4F4F2\n")
 
     def test_throwaway_home_never_reloads(self):
         called = []
