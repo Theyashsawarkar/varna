@@ -11,6 +11,10 @@ Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`
   0.44, gaps 8, 1 px borders. The old look is `varna apply catppuccin-mocha`.
   ADR 0006 says why.
 - tmux: in Vayu, Claude waiting is yellow (waiting) and the prefix capsule blue.
+- Vyom: only akashvani's cards take the theme's radius; its volume and brightness
+  bar keeps its own pill shape.
+- The website has Vayu's Spatial look: graphite glass, a floating navigation bar,
+  near-white for links and the main button, the tool's own colour only as its signature.
 
 ## v0.1.13 -- 2026-11-17
 
