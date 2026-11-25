@@ -4,6 +4,7 @@ Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`
 
 ## v0.1.14 -- 2026-11-25
 
+- The website, closer to Vayu's own: the tool's screenshot blurred behind the page, a centred hero with the logo and the verse, the page you're on as the white pill, glass "On this page" and footer panels, releases as cards. No glow behind the logo, no coloured line beside the verse.
 - **The Vayu theme is Spatial now**: neutral graphite glass instead of
   Catppuccin Mocha, near-white for where you are (selection is brighter glass,
   not mauve), and soft hues kept for meaning only (red danger, green done,
