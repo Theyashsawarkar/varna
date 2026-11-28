@@ -2,6 +2,10 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `varna/__init__.py`.
 
+## Unreleased
+
+- Website: pranali joins the family list in the footer; the site builder passes ruff.
+
 ## v0.1.14 -- 2026-11-25
 
 - The website, closer to Vayu's own: the tool's screenshot blurred behind the page, a centred hero with the logo and the verse, the page you're on as the white pill, glass "On this page" and footer panels, releases as cards. No glow behind the logo, no coloured line beside the verse.
